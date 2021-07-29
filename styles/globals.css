@@ -1,0 +1,128 @@
+/*Nunito font*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #f2f2f2;
+  color: #333;
+  font-family: "Nunito";
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+.content {
+  margin-top: 40px;
+} 
+ nav {
+  margin: 0 auto 80px;
+  /* padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border-bottom: 1px solid #ddd; */
+}
+nav a {
+  margin-left: 12px;
+}
+nav .logo {
+  margin-right: auto;
+} 
+
+
+footer {
+  display: block;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px;
+  color: #777;
+  border-top: 1px solid #eaeaea;
+}
+.not-found {
+  text-align: center;
+}
+.not-found a{
+  color: #4979ff;
+  text-decoration: underline;
+}
+
+
+.MuiPaper-root{
+ min-width: 300px;
+}
+
+.menuBar {
+  padding: 0 20px;
+  overflow: auto;
+  box-shadow: 0 0 30px #f3f1f1;
+}
+
+.logo {
+  width: 150px;
+  /* float: left; */
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
+.logo a {
+  display: inline-block;
+  font-size: 20px;
+  padding: 19px 20px;
+  text-transform: capitalize;
+}
+
+
+.ant-menu-horizontal {
+  border-bottom: none;
+  background: #556cd6;
+  color: #fff;
+}
+.ant-menu-horizontal > .ant-menu-item a,.ant-menu-horizontal a{
+  color: #fff;
+}
+
+
+@media (max-width: 767px) {
+
+
+  .leftMenu,
+  .rightMenu {
+    display: none;
+  }
+
+  .logo a {
+    margin-left: -20px;
+  }
+
+
+  .logo a {
+    padding: 10px 20px;
+  }
+}
+
+.product-list > a{
+  display: inline-block;
+  margin: 10px;
+}
+
+.out-stock{
+  color: red;
+}
+.in-stock{
+  color: green;
+}
+.stock-info{
+  display: block;
+  text-align: right;
+  font-size: x-large;
+}
+
+
+
+
+

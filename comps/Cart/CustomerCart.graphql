@@ -1,0 +1,37 @@
+
+
+
+
+query CustomerCart{
+  customerCart{
+    email
+    id
+    is_virtual
+    items{
+      id
+      prices {
+        row_total{
+          currency
+          value
+  			}
+      }
+      product{
+        id
+        name
+        sku
+      }
+      quantity
+    }
+    prices{
+    	grand_total{
+        currency
+        value
+  		}
+    	subtotal_including_tax{
+    		currency
+    		value
+    	}
+    }
+    total_quantity
+  }
+}

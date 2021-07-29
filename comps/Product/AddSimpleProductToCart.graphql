@@ -1,0 +1,20 @@
+mutation AddSimpleProductsToCart($cartId: String!,$sku: String!){
+    addSimpleProductsToCart(input: {
+      cart_id:$cartId
+      cart_items: [
+          {
+            data: {
+              quantity: 1
+              sku: $sku
+            }
+          }
+        ]
+    }){
+      cart{
+          email
+          id
+          is_virtual
+          total_quantity
+      }
+    }
+  }

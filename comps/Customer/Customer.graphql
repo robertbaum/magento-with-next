@@ -1,0 +1,13 @@
+
+query Customer{
+    customer{
+    email
+    firstname
+    gender
+    is_subscribed
+    lastname
+    middlename
+    prefix
+    suffix
+  }
+}

@@ -1,0 +1,6 @@
+mutation MergeCarts($guestCart: String!, $customerCart: String!){
+    mergeCarts(source_cart_id: $guestCart, destination_cart_id: $customerCart){
+      id
+      is_virtual
+    }
+}

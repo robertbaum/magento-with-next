@@ -1,0 +1,37 @@
+query GetProducts(
+  $filters: ProductAttributeFilterInput
+  $pageSize: Int = 12
+  $currentPage: Int = 1
+  ) {
+  products(
+    filter: $filters
+    pageSize: $pageSize
+    currentPage: $currentPage
+  ){
+    page_info {
+      current_page
+      total_pages
+    }
+
+    total_count
+    
+    items{
+      id
+      name
+      sku
+      url_key
+      canonical_url
+      
+      short_description{
+        html
+      }
+      image{
+        url
+      }
+    }
+  }
+}
+
+
+
+

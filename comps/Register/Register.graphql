@@ -1,0 +1,24 @@
+mutation Register($firstname: String! , $lastname: String!,  $email: String!, $password: String!) {
+    createCustomer( 
+      input:
+      {
+        firstname : $firstname, lastname: $lastname,  email: $email, password : $password
+      } 
+      ) {
+      customer{
+        created_at
+        date_of_birth
+        default_billing
+        default_shipping
+        email
+        firstname
+        gender
+        is_subscribed
+        lastname
+        middlename
+        prefix
+        suffix
+        taxvat
+      }
+    }
+  }
