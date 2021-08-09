@@ -44,13 +44,13 @@ module.exports = {
         destination: new URL('graphql', process.env.MAGENTO_URL).href,
       },
 
-      /**
-       * Sample of how to use APIs to Proxy Images
-       */
-      {
-        source: '/store/:pathname*',
-        destination: '/api/proxy',
-      },
+      // /**
+      //  * Sample of how to use APIs to Proxy Images
+      //  */
+      // {
+      //   source: '/store/:pathname*',
+      //   destination: '/api/proxy',
+      // },
 
       /**
        * URlResolver 

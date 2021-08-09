@@ -1,5 +1,5 @@
 import mergeCarts from '../comps/Cart/MergeCarts.graphql'
-import { customerCart } from '../comps/gql/query/CustomerCart.graphql'
+import { customerCart } from '../comps/Cart/CustomerCart.graphql'
 import React from 'react'
 import { useQuery, useMutation } from '@apollo/client'
 import { useRouter } from 'next/router'
