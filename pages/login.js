@@ -76,7 +76,7 @@ export default function login() {
     }
   );
 
-  const [mergeCarts] = useMutation(
+  const [MergeCarts] = useMutation(
     MERGE_CARTS,
     {
       onError(errors) {
@@ -114,7 +114,7 @@ export default function login() {
       setGuestCartId(localStorage.getItem('cartId'))
     }
 
-  }, [guestCartId, setIsLoged])
+  }, [guestCartId, isLoged])
 
 
 
@@ -140,12 +140,14 @@ export default function login() {
   //console.log(props)
   if (nEmail && nPassword) {
     login({ variables: { email: nEmail, password: nPassword } });
+    console.log('nEmail && nPassword)')
   }
 
 
 
 
   const classes = useStyles();
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -211,15 +213,5 @@ export default function login() {
 
     </Container>
   );
-  return (<div>
-    <form onSubmit={(e) => onSubmit(e)}>
-      <input type="email" name="email" onChange={(e) => onChange(e)} />
-      <input type="password" name="password" onChange={(e) => onChange(e)} />
-      <button type="submit">login</button>
-      <div>{isLoged}</div>
-    </form>
-  </div>
-  );
-
 }
 

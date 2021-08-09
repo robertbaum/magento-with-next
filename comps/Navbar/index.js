@@ -23,6 +23,7 @@ import Container from '@material-ui/core/Container';
 import LeftMenu from './LeftMenu'
 import RightMenu from './RightMenu'
 import { connect } from 'react-redux';
+import { setCartCount } from '../Redux/cart/cart.action';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -88,7 +89,15 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const PrimaryAppBar = ({ cartCount }) => {
+const PrimaryAppBar = (props) => {
+
+	const { cartCount, setCartCount } = props;
+
+	useEffect(() => {
+		setCartCount(localStorage.getItem('cartCount') ? localStorage.getItem('cartCount') : 0)
+	}, [])
+
+
 	const classes = useStyles();
 
 
@@ -175,4 +184,8 @@ const mapStateToProps = state => ({
 	cartCount: state.cart.cartCount
 })
 
-export default connect(mapStateToProps)(PrimaryAppBar)
+const mapDispatchToProps = dispatch => ({
+	setCartCount: cart => dispatch(setCartCount(cart))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PrimaryAppBar)

@@ -4,8 +4,7 @@ import Image from 'next/image';
 import PRODUCT_QUERY from '../comps/Product/Product.graphql'
 
 
-import { Card } from 'antd';
-const { Meta } = Card;
+
 
 import Gallery from '../comps/Product/Gallery';
 import Details from '../comps/Product/Details';

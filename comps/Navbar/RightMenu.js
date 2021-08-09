@@ -9,7 +9,7 @@ import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 import IconButton from '@material-ui/core/IconButton'
 
 
-const RightMenu = (props) => {
+const RightMenu = () => {
 
   const [isLoged, setIsLoged] = useState("/")
   const [isLoged_, setIsLoged_] = useState("/")
@@ -37,8 +37,7 @@ const RightMenu = (props) => {
       <Menu
         id="accont-menu"
         anchorEl={anchorEl}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}

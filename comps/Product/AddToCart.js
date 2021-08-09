@@ -6,7 +6,6 @@ import { useMutation } from '@apollo/client';
 
 import { connect } from 'react-redux';
 import { setCartCount } from '../Redux/cart/cart.action';
-import { lab } from 'color-convert';
 
 const AddToCart = props => {
   //console.log(props)
@@ -15,7 +14,7 @@ const AddToCart = props => {
 
 
   const [results, setResults] = useState('')
-  //const [cartCount, setCartCount] = useState()
+  //const [cartCount, setCartCount] = useState() defined by redux
 
   const [cartId, setCartId] = useState()
 
@@ -23,7 +22,6 @@ const AddToCart = props => {
   useEffect(() => {
     setCartId(localStorage.getItem('cartId') ? localStorage.getItem('cartId') : createEmptyCart())
     setCartCount(localStorage.getItem('cartCount') ? localStorage.getItem('cartCount') : 0)
-    console.log('cartCount and cartId set useEffect')
   }, [])
 
 
@@ -61,7 +59,6 @@ const AddToCart = props => {
 
   useEffect(() => {
     localStorage.setItem('cartCount', cartCount)
-    console.log('cartCount set useEffect')
   }, [cartCount])
 
 
