@@ -28,6 +28,8 @@ import CheckCircleOutline from '@material-ui/icons/CheckCircleOutlineOutlined';
 import ErrorOutline from '@material-ui/icons/ErrorOutlineOutlined';
 import Grid from '@material-ui/core/Grid';
 
+import AddToCart from '../comps/Product/AddToCart';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -82,9 +84,9 @@ export default function Category({ filters }) {
                   <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
                   </IconButton>
-                  <IconButton aria-label="share">
-                    <ShareIcon />
-                  </IconButton>
+
+                  <AddToCart product={item} />
+
                   <IconButton aria-label="share" >
                     {/* {(item.stock_status == "OUT_OF_STOCK") ? <ErrorOutline style={{ color: red[500] }} /> : <CheckCircleOutline style={{ color: green[500] }} />} */}
                     <CheckCircleOutline style={{ color: green[500] }} />

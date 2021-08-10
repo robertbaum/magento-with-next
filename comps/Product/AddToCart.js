@@ -70,7 +70,6 @@ const AddToCart = props => {
         addSimpleProductsToCart({ variables: { cartId, sku } });
       }}
     >
-      <p>{sku}</p>
       <p>{results}</p>
       <button type="submit">Add Product</button>
     </form>);

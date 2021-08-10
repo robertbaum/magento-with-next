@@ -1,0 +1,11 @@
+.container{
+    position: absolute;
+    border: 1px solid #000;
+    right: 30px;
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    padding: 10px 5px;
+    z-index: 10;
+    background: #fff;
+}

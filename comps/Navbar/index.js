@@ -25,6 +25,7 @@ import RightMenu from './RightMenu'
 import { connect } from 'react-redux';
 import { setCartCount } from '../Redux/cart/cart.action';
 
+import MiniCart from '../MiniCart/MiniCart'
 
 const useStyles = makeStyles((theme) => ({
 	grow: {
@@ -118,6 +119,8 @@ const PrimaryAppBar = (props) => {
 		</div>
 	);
 
+	const [miniCartToggle, setMiniCartToggle] = useState(false);
+
 	return (
 		<div className={classes.grow}>
 			<AppBar position="static">
@@ -157,8 +160,8 @@ const PrimaryAppBar = (props) => {
 						</div>
 						<div className={classes.grow} />
 						<div className={classes.sectionDesktop}>
-							<IconButton aria-label="show 4 new mails" color="inherit">
-								<Badge badgeContent={cartCount} color="secondary">
+							<IconButton aria-label={`show ${cartCount} new mails`} color="inherit" onClick={() => { setMiniCartToggle(!miniCartToggle) }}>
+								<Badge badgeContent={cartCount} color="secondary" >
 									<LocalMallOutlinedIcon />
 								</Badge>
 							</IconButton>
@@ -176,6 +179,10 @@ const PrimaryAppBar = (props) => {
 			<Drawer className={classes.leftDrawer} anchor='left' open={left} onClose={toggleLeftDrawer(false)}>
 				{leftMenu}
 			</Drawer>
+			{
+				!miniCartToggle ? '' : <MiniCart />
+			}
+
 		</div>
 	);
 }
