@@ -60,9 +60,9 @@ export default function login() {
   const [getCustomerCart] = useLazyQuery(
     CUSTOMER_CART,
     {
+      fetchPolicy: 'network-only',
       onCompleted({ customerCart }) {
         const customerCartId = customerCart.id
-
         if (customerCart && customerCartId) {
           localStorage.setItem('cartId', customerCartId)
           if (guestCartId) {
@@ -72,6 +72,9 @@ export default function login() {
           // redirect to the customer page after login
           router.push('/account')
         }
+      },
+      onError(errors) {
+        console.log(errors.message)
       }
     }
   );
@@ -108,12 +111,15 @@ export default function login() {
     if (localStorage.getItem('token')) {
       setIsLoged(localStorage.getItem('token'))
       //redirect to the customer page if logged
-      router.push('/account')
+      setTimeout(() => {
+        router.push('/account')
+      }, 2000);
+
     }
     if (localStorage.getItem('cartId')) {
       setGuestCartId(localStorage.getItem('cartId'))
     }
-
+    console.log(guestCartId)
   }, [guestCartId, isLoged])
 
 
@@ -137,7 +143,7 @@ export default function login() {
 
 
 
-  //console.log(props)
+  //in case the this page called by the registration page
   if (nEmail && nPassword) {
     login({ variables: { email: nEmail, password: nPassword } });
     console.log('nEmail && nPassword)')

@@ -1,6 +1,5 @@
-mutation MergeCarts($guestCart: String!, $customerCart: String!){
-    mergeCarts(source_cart_id: $guestCart, destination_cart_id: $customerCart){
+mutation MergeCarts($guestCartId: String!, $customerCartId: String!){
+    mergeCarts(source_cart_id: $guestCartId, destination_cart_id: $customerCartId){
       id
-      is_virtual
     }
 }

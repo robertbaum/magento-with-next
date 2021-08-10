@@ -15,6 +15,7 @@ export default function logout() {
     event.preventDefault();
     localStorage.setItem('token', '')
     localStorage.setItem('cartId', '')
+    localStorage.setItem('cartCount', '')
     setIsLoged('')
     if (isLoged) { router.push('/') }
   };
