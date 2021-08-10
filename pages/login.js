@@ -62,6 +62,8 @@ export default function login() {
     {
       fetchPolicy: 'network-only',
       onCompleted({ customerCart }) {
+        console.log('getCustomerCart proccesd')
+        console.log(customerCart)
         const customerCartId = customerCart.id
         if (customerCart && customerCartId) {
           localStorage.setItem('cartId', customerCartId)
@@ -69,9 +71,10 @@ export default function login() {
             // metging the carts after login
             MergeCarts({ variables: { guestCartId, customerCartId } })
           }
-          // redirect to the customer page after login
-          router.push('/account')
+
         }
+        // redirect to the customer page after login
+        router.push('/account')
       },
       onError(errors) {
         console.log(errors.message)
@@ -96,6 +99,7 @@ export default function login() {
         if (generateCustomerToken && generateCustomerToken.token) {
           localStorage.setItem('token', generateCustomerToken.token);
           setIsLoged(generateCustomerToken.token)
+          console.log('login proccesd')
           getCustomerCart()
         }
       },
@@ -113,7 +117,7 @@ export default function login() {
       //redirect to the customer page if logged
       setTimeout(() => {
         router.push('/account')
-      }, 2000);
+      }, 3000);
 
     }
     if (localStorage.getItem('cartId')) {
@@ -144,10 +148,12 @@ export default function login() {
 
 
   //in case the this page called by the registration page
-  if (nEmail && nPassword) {
-    login({ variables: { email: nEmail, password: nPassword } });
-    console.log('nEmail && nPassword)')
-  }
+  useEffect(() => {
+    // to prevent loop we check the token
+    if (nEmail && nPassword && !localStorage.getItem('token')) {
+      login({ variables: { email: nEmail, password: nPassword } });
+    }
+  }, [])
 
 
 
