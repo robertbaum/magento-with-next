@@ -120,7 +120,10 @@ const PrimaryAppBar = (props) => {
 	);
 
 	const [miniCartToggle, setMiniCartToggle] = useState(false);
-
+	const closeMinCart = () => {
+		setMiniCartToggle(false)
+		console.log('clicked')
+	}
 	return (
 		<div className={classes.grow}>
 			<AppBar position="static">
@@ -180,7 +183,7 @@ const PrimaryAppBar = (props) => {
 				{leftMenu}
 			</Drawer>
 			{
-				!miniCartToggle ? '' : <MiniCart />
+				!miniCartToggle || !cartCount > 0 ? '' : <MiniCart closeMinCart={closeMinCart} />
 			}
 
 		</div>

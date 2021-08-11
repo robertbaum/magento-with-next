@@ -5,7 +5,37 @@
     height: 300px;
     width: 300px;
     text-align: center;
-    padding: 10px 5px;
+    padding: 5px;
     z-index: 10;
     background: #fff;
+}
+.header{
+    text-align: right;
+    padding-bottom: 10px;
+}
+.cartItems{
+    height: 80%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.cartItem{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.leftpart{
+    max-width: 40%;
+}
+.rightpart{
+    max-width: 60%;
+}
+
+.rightpart span{
+    display: block;
 }

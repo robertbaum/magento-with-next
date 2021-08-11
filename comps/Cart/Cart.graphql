@@ -1,0 +1,38 @@
+query cart($cart_id: String!) {
+    cart(cart_id: $cart_id) {
+       email
+    prices{
+      grand_total{
+        currency
+        value
+      }
+    }
+    id
+    is_virtual
+    items{
+        uid
+        prices{
+          price{
+            currency
+            value
+          }
+          row_total{
+            currency
+            value
+          }
+        }
+        product{
+          uid
+          name
+          image{
+            url
+          }
+        }
+        quantity
+        uid
+      }
+    
+    total_quantity
+  }
+}
+

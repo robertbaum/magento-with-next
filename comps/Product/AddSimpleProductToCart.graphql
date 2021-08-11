@@ -9,12 +9,35 @@ mutation AddSimpleProductsToCart($cartId: String!,$sku: String!){
             }
           }
         ]
-    }){
+    })
+    {
       cart{
-          email
-          id
-          is_virtual
-          total_quantity
+        email
+        id
+        is_virtual
+        total_quantity
+        items{
+            uid
+            prices{
+              price{
+                currency
+                value
+              }
+              row_total{
+                currency
+                value
+              }
+            }
+            product{
+              uid
+              name
+              image{
+                url
+              }
+            }
+            quantity
+            uid
+          }
+        }
       }
-    }
   }
