@@ -94,11 +94,6 @@ const PrimaryAppBar = (props) => {
 
 	const { cartCount, setCartCount } = props;
 
-	useEffect(() => {
-		setCartCount(localStorage.getItem('cartCount') ? localStorage.getItem('cartCount') : 0)
-	}, [])
-
-
 	const classes = useStyles();
 
 

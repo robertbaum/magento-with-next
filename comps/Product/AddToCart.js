@@ -45,10 +45,6 @@ const AddToCart = props => {
     }
   });
 
-  useEffect(() => {
-    localStorage.setItem('cartCount', cartCount)
-  }, [cartCount])
-
 
 
   return (

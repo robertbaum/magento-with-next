@@ -12,7 +12,8 @@ import { ApolloProvider } from '@apollo/client';
 import { useApollo } from '../lib/apolloClient';
 
 import { Provider as ReduxProvider } from 'react-redux';
-import store from '../comps/Redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from '../comps/Redux/store';
 
 
 import { useEffect } from 'react';
@@ -36,15 +37,17 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <ApolloProvider client={apolloProps} >
         <ReduxProvider store={store}>
-          <ThemeProvider theme={theme}>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-            <CssBaseline />
-            <Layout>
-              <Container className="content" maxWidth="xl">
-                <Component {...pageProps} />
-              </Container>
-            </Layout>
-          </ThemeProvider>
+          <PersistGate persistor={persistor} >
+            <ThemeProvider theme={theme}>
+              {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+              <CssBaseline />
+              <Layout>
+                <Container className="content" maxWidth="xl">
+                  <Component {...pageProps} />
+                </Container>
+              </Layout>
+            </ThemeProvider>
+          </PersistGate>
         </ReduxProvider>
       </ApolloProvider>
     </>
